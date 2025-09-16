@@ -4,32 +4,118 @@
     ViewData["Title"] = "Home page";
 }
 
-<div>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f4f6f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    .form-container {
+        max-width: 400px;
+        margin: 50px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .form-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .form-container form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-container input {
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+        transition: 0.2s ease;
+        font-size: 14px;
+    }
+
+    .form-container input:focus {
+        border-color: #4a90e2;
+        box-shadow: 0px 0px 4px rgba(74,144,226,0.3);
+    }
+
+    .form-container span {
+        font-size: 13px;
+        color: #e74c3c;
+        margin-top: -10px;
+    }
+
+    .form-container button {
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        background: #4a90e2;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.2s ease;
+    }
+
+    .form-container button:hover {
+        background: #357ABD;
+    }
+
+    .form-container button[type="submit"]:last-child {
+        background: #2ecc71;
+    }
+
+    .form-container button[type="submit"]:last-child:hover {
+        background: #27ae60;
+    }
+
+    .result-box {
+        max-width: 400px;
+        margin: 20px auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0px 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .result-box p {
+        margin: 0;
+        color: #333;
+        font-size: 16px;
+    }
+</style>
+
+
+<div class="form-container">
 	<h2>
 		Form in @ViewData["Title"]
 	</h2>
     <form method="post">
 		
-		<input type="text" placeholder="name" asp-for="StudentData.Name">
+		<input type="text" placeholder="Name" asp-for="StudentData.Name">
 		<span asp-validation-for="StudentData.Name"></span>
 		
-		<input type="text" placeholder="email" asp-for="StudentData.Email">
+		<input type="text" placeholder="Email" asp-for="StudentData.Email">
 		<span asp-validation-for="StudentData.Email"></span>
 		
-		<input type="number" placeholder="age" asp-for="StudentData.Age">
+		<input type="number" placeholder="Age" asp-for="StudentData.Age">
 		<span asp-validation-for="StudentData.Age"></span>
 		
-		<button type="submit" asp-page-handler="Save">save</button>
-		<button type="submit" asp-page-handler="Show">show</button>
+		<button type="submit" asp-page-handler="Save">Save</button>
+		<button type="submit" asp-page-handler="Show">Show</button>
 		
 	</form>
 </div>
 
-<div>
-	<br>
-	<br>
-	<br>
-	
+<div class="result-box">
 	<p>
 		@Model.Result
 	</p>
