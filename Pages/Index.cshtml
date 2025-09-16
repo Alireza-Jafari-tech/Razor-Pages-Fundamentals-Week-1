@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div>
+	<h2>
+		Form in @ViewData["Title"]
+	</h2>
+    <form method="post">
+		
+		<input type="text" placeholder="name" asp-for="StudentData.Name">
+		<span asp-validation-for="StudentData.Name"></span>
+		
+		<input type="text" placeholder="email" asp-for="StudentData.Email">
+		<span asp-validation-for="StudentData.Email"></span>
+		
+		<input type="number" placeholder="age" asp-for="StudentData.Age">
+		<span asp-validation-for="StudentData.Age"></span>
+		
+		<button type="submit" asp-page-handler="Save">save</button>
+		<button type="submit" asp-page-handler="Show">show</button>
+		
+	</form>
+</div>
+
+<div>
+	<br>
+	<br>
+	<br>
+	
+	<p>
+		@Model.Result
+	</p>
+</div>
